@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizations - India Drought Monitor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1> India Drought Monitor</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="datasets.html">Datasets</a></li>
+                <li><a href="visualisation.html" class="active">Visualizations</a></li>
+                <li><a href="team.html">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="container">
+            <h2>Interactive Visualizations</h2>
+            <p class="subtitle">Explore NDVI and Soil Moisture data through Google Earth Engine</p>
+        </div>
+    </div>
+
+    <main class="container content-page">
+        <section class="visualization-controls">
+            <div class="control-panel">
+                <div class="control-group">
+                    <label for="vizType">Visualization Type:</label>
+                    <select id="vizType" onchange="updateVisualization()">
+                        <option value="ndvi">NDVI (Vegetation Health)</option>
+                        <option value="soilmoisture">Soil Moisture</option>
+                        <option value="spi3">SPI-3 (3-Month Precipitation)</option>
+                        <option value="spi6">SPI-6 (6-Month Precipitation)</option>
+                        <option value="composite">Composite Drought Index</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="vizDate">Date:</label>
+                    <input type="month" id="vizDate" value="2023-12" onchange="updateVisualization()">
+                </div>
+                <button class="btn-primary" onclick="updateVisualization()">Update</button>
+            </div>
+        </section>
+
+        <section class="gee-section">
+            <h2>NDVI Mapping</h2>
+            <p class="viz-description">Normalized Difference Vegetation Index (NDVI) shows vegetation health across India. Green areas indicate healthy vegetation, while brown/red areas show vegetation stress.</p>
+            
+            <div class="gee-container">
+                <!-- Google Earth Engine Embed -->
+                <!-- Replace this iframe with your actual GEE App URL -->
+                <iframe 
+                    src="https://probable-lore-443417-n6.projects.earthengine.app/view/india-ndvi" 
+                    width="100%" 
+                    height="600px" 
+                    frameborder="0"
+                    id="geeFrame">
+                </iframe>
+                
+                <!-- Fallback: Instructions to add GEE embed -->
+               
+            </div>
+        </section>
+
+        <section class="gee-section">
+            <h2>Soil Moisture Mapping</h2>
+            <p class="viz-description">Soil moisture content in the root zone (0-100cm depth). Blue indicates high moisture content, while red/orange shows dry conditions.</p>
+            
+            <div class="gee-container">
+                <!-- Second GEE visualization for Soil Moisture -->
+                <iframe 
+                    src="https://probable-lore-443417-n6.projects.earthengine.app/view/india-soil-moisture-calculation-2010-22" 
+                    width="100%" 
+                    height="600px" 
+                    frameborder="0">
+                </iframe>
+                
+                
+            </div>
+        </section>
+
+
+        <section class="content-section">
+            <h2>How to Use These Visualizations</h2>
+            <div class="usage-grid">
+                <div class="stat-card">
+                    <h3>Layer Selection</h3>
+                    <p class="stat-label">Use the dropdown menu to switch between NDVI, Soil Moisture, and SPI visualizations to compare different drought indicators.</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Time Control</h3>
+                    <p class="stat-label">Select different months to observe seasonal patterns and drought evolution over the 2019-2023 period.</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Interactive Map</h3>
+                    <p class="stat-label">Click on specific regions within the map to view detailed statistics and historical trends for that area.</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Data Export</h3>
+                    <p class="stat-label">Download region-specific data for further analysis or integration with your own systems.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 India Drought Monitor | Developed for Agricultural and Hydrological Monitoring</p>
+        </div>
+    </footer>
+
+    <script src="visualizations.js"></script>
+</body>
+</html>

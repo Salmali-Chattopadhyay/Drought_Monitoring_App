@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - India Drought Monitor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1> India Drought Monitor</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="datasets.html">Datasets</a></li>
+                <li><a href="visualisation.html">Visualizations</a></li>
+                <li><a href="team.html">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="container">
+            <h2>About the India Drought Monitor</h2>
+            <p class="subtitle">Comprehensive drought assessment using machine learning and satellite data</p>
+        </div>
+    </div>
+
+    <main class="container content-page">
+        <section class="content-section">
+            <h2>Overview</h2>
+            <p>The India Drought Monitor is an advanced drought monitoring system that combines multiple drought indicators including NDVI, Soil Moisture, and Standardized Precipitation Index (SPI) to provide comprehensive drought assessment across India. Our system uses machine learning models trained on data from 2019-2023 to predict and monitor drought conditions.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Methodology</h2>
+            <p>Our Combined Drought Indicator (CDI) uses a weighted combination of multiple datasets:</p>
+            
+            <div class="formula-box">
+                <p><strong>CDI = (a × NDVI) + (b × SM) + (c × SPI-3) + (d × SPI-6)</strong></p>
+                <p class="formula-note">where a, b, c, d are weights optimized through machine learning</p>
+            </div>
+
+            <p>Each dataset is percentile-ranked over a baseline period (2019-2023) and combined using weights determined through Principal Component Analysis (PCA) for optimal drought detection.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Key Drought Indices</h2>
+            
+            <div class="index-card">
+                <h3>Normalized Difference Vegetation Index (NDVI)</h3>
+                <p>NDVI measures vegetation "greenness" as observed by satellite. It is a reliable indicator of vegetation health and decreases when plants experience water stress, disease, or death.</p>
+                <div class="key-points">
+                    <h4>Strengths:</h4>
+                    <ul>
+                        <li>High-quality continuous satellite coverage</li>
+                        <li>Real-time vegetation health monitoring</li>
+                        <li>Effective for agricultural drought detection</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="index-card">
+                <h3>Soil Moisture (SM)</h3>
+                <p>Soil moisture measures the percentage of water stored in the root-zone soil profile. It's simulated using temperature, precipitation, solar radiation, and sophisticated water balance models.</p>
+                <div class="key-points">
+                    <h4>Strengths:</h4>
+                    <ul>
+                        <li>Direct measurement of agricultural water availability</li>
+                        <li>Critical for crop growth assessment</li>
+                        <li>Early warning indicator for drought</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="index-card">
+                <h3>Standardized Precipitation Index (SPI)</h3>
+                <p>SPI characterizes meteorological drought on various timescales by comparing actual precipitation to historical probability distributions.</p>
+                <div class="key-points">
+                    <h4>Strengths:</h4>
+                    <ul>
+                        <li>Simple calculation using precipitation only</li>
+                        <li>Multiple timescales for different applications</li>
+                        <li>SPI-3 for short-term agricultural monitoring</li>
+                        <li>SPI-6 for seasonal agricultural impacts</li>
+                    </ul>
+                    <h4>Limitations:</h4>
+                    <ul>
+                        <li>Does not account for evapotranspiration</li>
+                        <li>Requires 30-50 years of data for robustness</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Drought Categories</h2>
+            <table class="drought-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Percentile</th>
+                        <th>Frequency</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="exceptional-drought">
+                        <td>Exceptional Drought</td>
+                        <td>0-2%</td>
+                        <td>1 in 50 years</td>
+                        <td>Severe crop losses, water shortages</td>
+                    </tr>
+                    <tr class="extreme-drought">
+                        <td>Extreme Drought</td>
+                        <td>2-5%</td>
+                        <td>1 in 20 years</td>
+                        <td>Major crop/pasture losses</td>
+                    </tr>
+                    <tr class="severe-drought">
+                        <td>Severe Drought</td>
+                        <td>5-10%</td>
+                        <td>1 in 10 years</td>
+                        <td>Crop stress, reduced yields</td>
+                    </tr>
+                    <tr class="moderate-drought">
+                        <td>Moderate Drought</td>
+                        <td>10-20%</td>
+                        <td>1 in 5 years</td>
+                        <td>Some crop damage</td>
+                    </tr>
+                    <tr class="slight-drought">
+                        <td>Slightly Dry</td>
+                        <td>20-30%</td>
+                        <td>1 in 3 years</td>
+                        <td>Minimal impact</td>
+                    </tr>
+                    <tr class="normal">
+                        <td>Near Normal</td>
+                        <td>30-70%</td>
+                        <td>Common</td>
+                        <td>Normal conditions</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="content-section">
+            <h2>Machine Learning Model</h2>
+            <p>Our system employs a machine learning model trained on historical drought data from 2019-2023. The model:</p>
+            <ul>
+                <li>Processes multi-temporal satellite imagery and climate data</li>
+                <li>Identifies complex patterns in drought development</li>
+                <li>Provides early warning predictions</li>
+                <li>Adapts to regional climate variations across India</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 India Drought Monitor | Developed for Agricultural and Hydrological Monitoring</p>
+        </div>
+    </footer>
+</body>
+</html>

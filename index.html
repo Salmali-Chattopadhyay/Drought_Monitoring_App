@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Drought Monitor | Real-time Monitoring System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1> India Drought Monitor</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="datasets.html">Datasets</a></li>
+                <li><a href="visualisation.html">Visualizations</a></li>
+                <li><a href="team.html">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="hero">
+        <div class="container">
+            <h2>India Combined Drought Indicator</h2>
+            <p class="subtitle">Real-time drought monitoring using NDVI, Soil Moisture, and SPI indices (2019-2023)</p>
+        </div>
+    </div>
+
+
+    <main class="container">
+        <section class="controls-section">
+            <!-- State dropdown -->
+            <div class="control-group">
+                <label for="stateSelect">State:</label>
+                <select id="stateSelect" onchange="updateMap()">
+                    <option value="">Select State</option>
+                </select>
+            </div>
+
+            <!-- Time Scale -->
+            <div class="control-group">
+                <label for="timeScale">Time Scale:</label>
+                <select id="timeScale" onchange="updateMap()">
+                    <option value="1">1 Month</option>
+                    <option value="3">3 Months</option>
+                    <option value="6" selected>6 Months</option>
+                    <option value="9">9 Months</option>
+                    <option value="12">12 Months</option>
+                    <option value="24">24 Months</option>
+                </select>
+            </div>
+
+            <!-- Date -->
+            <div class="control-group">
+                <label for="dateSelect">Date:</label>
+                <input type="month" id="dateSelect" value="2023-12" onchange="updateMap()">
+            </div>
+
+            <button class="btn-primary" onclick="updateMap()">Update Map</button>
+        </section>
+
+
+        <section class="map-section">
+            <div id="map"></div>
+            <div class="legend">
+                <h3>Drought Severity</h3>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #730000;"></span>
+                    <span>Exceptional Drought (0-2%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #E60000;"></span>
+                    <span>Extreme Drought (2-5%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #FFAA00;"></span>
+                    <span>Severe Drought (5-10%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #FCD37F;"></span>
+                    <span>Moderate Drought (10-20%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #FFFF00;"></span>
+                    <span>Slightly Dry (20-30%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #FFFFFF;"></span>
+                    <span>Near Normal (30-70%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #A6F28F;"></span>
+                    <span>Slightly Wet (70-80%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #00AAFF;"></span>
+                    <span>Moderate Wet (80-90%)</span>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="info-section">
+            <h2>About This Time Scale</h2>
+            <p id="timeScaleInfo">A 6-month dry period can produce detrimental agricultural impacts extending over two seasons leading to less productivity, crop failure, pasture decline, lost income and strain on communities.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Current Coverage</h3>
+                    <p class="stat-number">28 States</p>
+                    <p class="stat-label">Monitored Regions</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Data Sources</h3>
+                    <p class="stat-number">3 Primary</p>
+                    <p class="stat-label">Satellite & Ground</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Update Frequency</h3>
+                    <p class="stat-number">Monthly</p>
+                    <p class="stat-label">Latest: May 2022</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 India Drought Monitor | Developed for Agricultural and Hydrological Monitoring</p>
+        </div>
+    </footer>
+
+
+    <script src="map.js"></script>
+</body>
+</html>
