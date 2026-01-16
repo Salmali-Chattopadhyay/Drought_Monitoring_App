@@ -15,6 +15,7 @@ def inspect_pkl_file(pkl_path):
 
     with open(pkl_path, 'rb') as f:
         data = pickle.load(f)
+        
 
     print(f"Type: {type(data)}")
     print(f"=" * 60)
